@@ -1,2 +1,2 @@
 # kfcron-docs
-kfcron documentation
+[kfcron](https://github.com/larioj/kfcron) documentation
