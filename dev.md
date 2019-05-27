@@ -7,6 +7,7 @@
     docs/common-commands.md
     : tabe docs/doc-dev.md
     : tabe docs/k8s-dev.md
+     docs/k8s-dev.md
 
 ## Main
 - app/Main.hs
@@ -67,4 +68,4 @@
 
 ## Documentation Submodule
 ### Setup
-    $ git submodule add https://github.com/larioj/kfcron-docs.git
+    $ git submodule add https://github.com/larioj/kfcron-docs.git docs
