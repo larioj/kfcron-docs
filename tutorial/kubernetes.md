@@ -8,7 +8,9 @@ to a secret volume. This is accomplished by this
 [commit](https://github.com/larioj/kfcron/commit/f9bea69).
 
 Now we can run kfcron by doing:
+```
     $ kfcron [path-to-schedule] [path-to-token]
+```
 
 ## Dockerizing the application
 We need a container wih kfcron in order to run it in a kubernetes cluster. We
