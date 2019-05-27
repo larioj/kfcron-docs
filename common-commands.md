@@ -1,7 +1,11 @@
 ## Git
-  $ git --no-pager diff
+  $ git diff
   $ git status
   $ git add .
+  $ git commit
   $ git commit --amend
-  $ git commit -m "separate secrets from configuration"
   $ git rebase -i HEAD~4
+  $ git push -u origin master
+
+## Set Up Git Access Token
+  $ git config credential.helper store
