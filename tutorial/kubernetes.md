@@ -1,4 +1,7 @@
 # Running kfcron on Kubernets
+kfcron is a utility that schedules recuring tasks on a [KanbanFlow](https://kanbanflow.com) board.
+The goal of this tutorial is to show how to get kfcron running on a kubernetes cluster, such that the
+configured schedule updates whenever a github repository containing the schedule changes.
 
 ## Application Changes
 In order to run kfcron on kubernetes we need to change the configuration so that
@@ -28,7 +31,7 @@ pulblish it to docker hub.
         larioj/kfcron:$(git rev-parse --short HEAD)
     $ docker push larioj/kfcron:$(git rev-parse --short HEAD)
 
-## Create a kubernetes cluster on gke
+## Create a kubernetes cluster on GKE
 
 ### Install GCP SDK
 Install instructions at [Google Cloud Docs](https://cloud.google.com/sdk/docs)
