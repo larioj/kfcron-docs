@@ -28,7 +28,7 @@ pulblish it to docker hub.
         larioj/kfcron:$(git rev-parse --short HEAD)
     $ docker push larioj/kfcron:$(git rev-parse --short HEAD)
 
-## Create a kubernetes cluseter on gke
+## Create a kubernetes cluster on gke
 
 ### Install GCP SDK
 Install instructions at [Google Cloud Docs](https://cloud.google.com/sdk/docs)
