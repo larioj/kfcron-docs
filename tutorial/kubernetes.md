@@ -1,5 +1,7 @@
 # Running kfcron on Kubernets
-kfcron is a utility that schedules recuring tasks on a [KanbanFlow](https://kanbanflow.com) board.
+[kfcron](https://github.com/larioj/kfcron#readme) is a utility that schedules recuring tasks on a
+[KanbanFlow](https://kanbanflow.com) board.
+
 The goal of this tutorial is to show how to get kfcron running on a kubernetes cluster, such that the
 configured schedule updates whenever a github repository containing the schedule changes.
 
