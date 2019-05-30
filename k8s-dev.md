@@ -6,27 +6,34 @@
 ### Install GCP SDK
 Install instructions at [Google Cloud Docs](https://cloud.google.com/sdk/docs)
 
+#### Using homebrew
+    $ brew cask install google-cloud-sdk
+
 ### Log In And Create Project
     $ gcloud init
 
 ### Enable Kubernetes
 https://console.cloud.google.com/apis/api/container.googleapis.com/overview?project=larioj
 
-### Learn how to use it
-    $ gcloud --help
-    $ gcloud config set compute/zone us-west1-b
-    $ gcloud compute --help
-    $ gcloud compute disks list
-    $ gcloud compute instances list
-    $ gcloud compute instances delete default
+### Create Cluster
     $ gcloud container clusters --help
     $ gcloud container clusters create default --zone us-west1-b
     $ gcloud container clusters resize default --size=1
     $ gcloud container clusters list
 
-### Kubectl
+### Use free tier
+    $ gcloud compute machine-types list
+    $ gcloud container node-pools create default \
+        --cluster=default \
+        --machine-type=f1-micro \
+        --disk-size=30GB \
+        --num-nodes=1
+    $ gcloud container node-pools list --cluster=default
+    $ gcloud container node-pools delete xxxx --cluster=default
+
+### Install Kubectl
     $ gcloud components install kubectl
-    $ kubectl get node
+    $ gcloud container clusters get-credentials default
 
 ## Files
     k8s/kfcron.yaml
@@ -40,14 +47,16 @@ https://console.cloud.google.com/apis/api/container.googleapis.com/overview?proj
     $ docker push larioj/kfcron:$(git rev-parse --short HEAD)
 
 ## Create Replica Set
+    $ kubectl create -f k8s/kfcron.yaml
     $ kubectl get rs
     $ kubectl describe rs kfcron
-    $ kubectl get pod
+
+## Update Replaca Set
     $ kubectl delete pods -l app=kfcron
     $ kubectl describe pod -l app=kfcron
-    $ kubectl exec -it kfcron-bc89r -- /bin/bash
-    $ kubectl create -f k8s/kfcron.yaml
+    $ kubectl exec -it xxx -- /bin/sh
     $ kubectl apply -f k8s/kfcron.yaml
+    $ kubectl edit rs kfcron
 
 ## Debug Logs
     $ kubectl logs -l app=kfcron -c git-sync
